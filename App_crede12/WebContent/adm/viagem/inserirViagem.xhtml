@@ -1,0 +1,87 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Adicionar Viagem
+	</ui:define>
+
+
+
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+
+		<h:form>
+
+			<h:panelGrid columns="2">
+
+
+				<h:outputLabel for="dataViagem" value="Data da Viagem:"></h:outputLabel>
+				<p:inputMask id="dataViagem" value="#{viagemBean.viagem.data}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+
+
+				<h:outputLabel for="horasaida" value="Horário de Saida:"></h:outputLabel>
+				<p:inputMask id="horasaida" label="Horário de Saida:"
+					value="#{viagemBean.viagem.horarioSaida}" required="true"
+					mask="99:99"></p:inputMask>
+					
+					<h:outputLabel for="horaChegada" value="Horário de Saida:"></h:outputLabel>
+				<p:inputMask id="horaChagada" label="Horário de Chegada:"
+					value="#{viagemBean.viagem.horarioChegada}" required="true"
+					mask="99:99"></p:inputMask>
+
+				<h:outputLabel for="municipio" value="Município:"></h:outputLabel>
+				<h:selectOneMenu id="municipio"
+					value="#{viagemBean.viagem.municipio}" style= "width:150px" >
+					<f:selectItem itemValue="" itemLabel="Selecione a Cidade" />
+					<f:selectItem itemValue="Quixadá" itemLabel="Quixadá" />
+					<f:selectItem itemValue="Boa Viagem" itemLabel="Boa Viagem" />
+					<f:selectItem itemValue="Quixeramobim" itemLabel="Quixeramobim" />
+					<f:selectItem itemValue="Madalena" itemLabel="Madalena" />
+					<f:selectItem itemValue="Ibaretama" itemLabel="Ibaretama" />
+				</h:selectOneMenu>
+				
+
+
+
+				<h:outputLabel for="evento" value="Evento:"></h:outputLabel>
+				<h:inputText class="form-control" id="evento" label="Evento:"
+					value="#{viagemBean.viagem.evento}" required="true">
+				</h:inputText>
+
+				<h:outputLabel for="tecnico" value="Técnico:"></h:outputLabel>
+				<h:inputText class="form-control" id="tecnico" label="Técnico:"
+					value="#{viagemBean.viagem.tecnico}" required="true">
+				</h:inputText>
+
+				<h:outputLabel for="distancia" value="Distancia:"></h:outputLabel>
+				<h:inputText class="form-control" id="distancia" label="Distancia:"
+					value="#{viagemBean.viagem.distancia}" required="true">
+				</h:inputText>
+
+				<h:outputLabel for="carro" value="Carro:"></h:outputLabel>
+				<h:inputText class="form-control" id="carro" label="Carro:"
+					value="#{viagemBean.viagem.carro}" required="true">
+				</h:inputText>
+
+
+				<h:commandButton value="Cadastrar"
+					action="#{viagemBean.inserirViagem}" required="true"
+					class="btn btn-success" />
+
+
+			</h:panelGrid>
+		</h:form>
+
+		<h:messages globalOnly="true" />
+
+	</ui:define>
+
+</ui:composition>

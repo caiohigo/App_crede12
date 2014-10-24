@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/geral.xhtml">
+	<ui:define name="corpo">
+	<h:form>
+		<p:dataTable id="listagem" var="participante" value="#{participanteBean.pesquisarCpf}" paginator="true" rows="10"
+		 selectionMode="single" rowKey="#{participante.id}" emptyMessage="Sem Participante cadastrado com esse CPF" >
+			
+			<f:facet name="header">
+				Listar Participante
+			</f:facet>
+			
+			
+			<p:column headerText="Nome">
+				<h:outputText value="#{participante.nome}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="CPF">
+				<h:outputText value="#{participante.cpf}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Data de Nascimento">
+				<h:outputText value="#{participante.data}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Endereço">
+				<h:outputText value="#{participante.endereco}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="Cidade">
+				<h:outputText value="#{participante.cidade}"></h:outputText>
+			</p:column>
+			
+			<p:column headerText="UF">
+				<h:outputText value="#{participante.uf}"></h:outputText>
+			</p:column>
+			
+			 <p:column headerText="CEP">
+				<h:outputText value="#{participante.cep}"></h:outputText>
+			</p:column>
+	         
+	         <p:column headerText="Telefone">
+				<h:outputText value="#{participante.telefone}"></h:outputText>
+			</p:column>
+			
+			
+			<p:column headerText="Email">
+				<h:outputText value="#{participante.email}"></h:outputText>
+			</p:column>
+	        
+	        
+		</p:dataTable>
+	</h:form>
+	</ui:define>
+	
+</ui:composition>
+</html>

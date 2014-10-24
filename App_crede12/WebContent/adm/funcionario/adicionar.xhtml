@@ -1,0 +1,84 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Adicionar Funcionários
+	</ui:define>
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+
+		<h:form>
+			<h:panelGrid columns="3">
+
+				<h:outputLabel  for="cpf" value="CPF:"></h:outputLabel>
+				<p:inputMask id="cpf" value="#{participanteBean.participante.cpf}" mask="999.999.999-99"  required="true"
+					requiredMessage="#{msg.erro_cpf}" >
+					
+					<f:validateLength minimum="11" /></p:inputMask>
+				<h:message for="cpf" />
+
+				<h:outputLabel for="nome" value="Nome:"></h:outputLabel>
+				<h:inputText id="nome" label="Nome:"
+					value="#{participanteBean.participante.nome}" required="true"
+					requiredMessage="#{msg.requererNome}" class="form-control" />
+				<h:message for="nome" />
+
+				<h:outputLabel  for="dataNasc" value="Data do Nascimento:"></h:outputLabel>
+				<p:inputMask id="dataNasc" value="#{participanteBean.participante.data}" mask="99/99/9999"  required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" /> </p:inputMask> 
+				<h:message for="dataNasc" />
+				
+				
+				<h:outputLabel for="end" value="Endereco:"></h:outputLabel>
+				<h:inputText id="end" label="Endereco:"
+					value="#{participanteBean.participante.endereco}" required="true"
+					requiredMessage="#{msg.requererEndereco}" class="form-control" />
+				<h:message for="end" />
+
+				<h:outputLabel for="cidade" value="Cidade:"></h:outputLabel>
+				<h:inputText id="cidade" label="Cidade:"
+					value="#{participanteBean.participante.cidade}" required="true"
+					requiredMessage="#{msg.requererCidade}" class="form-control" />
+				<h:message for="cidade" />
+
+				<h:outputLabel for="uf" value="UF:"></h:outputLabel>
+				<h:inputText id="uf" label="UF:"
+					value="#{participanteBean.participante.uf}" required="true"
+					requiredMessage="É obrigatorio o preenchimento" class="form-control" />
+				<h:message for="uf" />
+
+				<h:outputLabel for="cep" value="CEP:"></h:outputLabel>
+					<p:inputMask id="cep" value="#{participanteBean.participante.cep}" mask="99.999-999"  required="true"
+					requiredMessage="#{msg.erro_cep}"/>
+				<h:message for="cep" />
+
+				<h:outputLabel for="fone" value="Telefone:"></h:outputLabel>
+				<p:inputMask id="fone" value="#{participanteBean.participante.telefone}" mask="(99) 9999-9999"  required="true"
+					requiredMessage="#{msg.telefone_invalido}"/>				
+				<h:message for="fone" />
+
+				<h:outputLabel for="email" value="Email:"></h:outputLabel>
+				<h:inputText id="email" label="Email:"
+					value="#{participanteBean.participante.email}" required="true"
+					validatorMessage="#{msg.email_invalido}" class="form-control">
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</h:inputText>
+				<h:message for="email" />
+
+				<h:commandButton value="Cadastrar"
+					action="#{participanteBean.inserirParticipante()}" required="true"  class="btn btn-success" />
+
+			</h:panelGrid>
+		</h:form>
+
+
+	</ui:define>
+
+
+</ui:composition>

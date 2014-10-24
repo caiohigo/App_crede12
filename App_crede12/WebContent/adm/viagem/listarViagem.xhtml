@@ -1,0 +1,88 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="nome_cabecalho">
+		Lista de Viagens
+	</ui:define>
+
+
+
+	<ui:define name="principal">
+
+		<h:form id="form-eventos">
+			<p:dataTable id="listagem" var="viagem" value="#{viagemBean.viagens}"
+				paginator="true" rows="10" selectionMode="single"
+				rowKey="#{viagem.id}" emptyMessage="Sem Viagens Cadastradas">
+
+				<f:facet name="header">
+				Viagens Cadastradas
+			</f:facet>
+
+				<p:column>
+					<p:rowToggler />
+				</p:column>
+
+				<p:rowExpansion>
+					<h:outputText value="Data: #{viagem.data}"></h:outputText>
+					<br />
+					<h:outputText value="Horário de Saída: #{viagem.horarioSaida}"></h:outputText>
+					<br />
+					<h:outputText value="Horário de Chegada: #{viagem.horarioChegada}"></h:outputText>
+					<br />
+					<h:outputText value="Município: #{viagem.municipio}"></h:outputText>
+					<br />
+					<h:outputText value="Evento: #{viagem.evento}"></h:outputText>
+					<br />
+					<h:outputText value="Técnico/Funcionário: #{viagem.tecnico}"></h:outputText>
+					<br />
+					<h:outputText value="Distância: #{viagem.distancia}"></h:outputText>
+					<br />
+					<h:outputText value="Carro: #{viagem.carro}"></h:outputText>
+					<br />
+
+				</p:rowExpansion>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{viagem.data}"></h:outputText>
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Editar" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-wrench" title="Editar Viagem"
+						action="#{viagemBean.buscarViagem}" update="listagem">
+						<f:param name="id" value="#{viagem.id}" />
+					</p:commandButton>
+
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Excluir" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-trash" title="Remover Atividade"
+						action="#{viagemBean.deletarViagem}" update="listagem">
+						<f:ajax execute="@form" render=":form-eventos" />
+						<f:param name="id" value="#{viagem.id}" />
+					</p:commandButton>
+
+
+
+				</p:column>
+
+
+
+			</p:dataTable>
+			
+			
+			
+		</h:form>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,41 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<ul class="nav" id="side-menu">
+		<li class="sidebar-search">
+			<div class="input-group custom-search-form">
+				<!-- Implementar busca de CPF aqui -->
+			</div> <!-- /input-group -->
+		</li>
+
+		<li><a href="#">Funcionário <i class="fa fa-caret-down" /> </a>
+			<ul class="nav nav-second-level">
+				<li><h:link outcome="/adm/funcionario/adicionar">Adicionar Funcionário</h:link></li>
+				<li><h:link outcome="/adm/funcionario/listar">Listar Funcionários</h:link></li>
+			</ul> <!-- /.nav-second-level --></li>
+
+		<li><a href="#">Eventos <i class="fa fa-caret-down" /> </a>
+			<ul class="nav nav-second-level">
+				<li><h:link outcome="/adm/evento/inserirEvento">Adicionar Evento</h:link></li>
+				<li><h:link outcome="/adm/evento/listarEvento">Listar Eventos</h:link></li>
+			</ul> <!-- /.nav-second-level --></li>
+			
+			<li><a href="#">Viagens <i class="fa fa-caret-down" /> </a>
+			<ul class="nav nav-second-level">
+				<li><h:link outcome="/adm/viagem/inserirViagem">Adicionar Viagem</h:link></li>
+				<li><h:link outcome="/adm/viagem/listarViagem">Listar Viagem</h:link></li>
+			</ul> <!-- /.nav-second-level --></li>
+			
+			<li><a href="#">Hospedagem <i class="fa fa-caret-down" /> </a>
+			<ul class="nav nav-second-level">
+				<li><a href="#">Adicionar Hospedagem</a></li>
+				<li><a href="#">Listar Hospedes</a></li>
+			</ul> <!-- /.nav-second-level --></li>
+
+	</ul>
+	
+	
+</ui:composition>

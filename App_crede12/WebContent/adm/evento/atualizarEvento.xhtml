@@ -1,0 +1,58 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Atualizar Evento
+	</ui:define>
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+		<h:form>
+
+			<h:panelGrid columns="3">
+
+				<h:outputLabel for="nome" value="Evento:"></h:outputLabel>
+				<h:inputText id="nome" label="Evento:"
+					value="#{eventoBean.evento.nome}">
+				</h:inputText>
+				<h:message for="nome" />
+				<h:outputLabel for="ministrante" value="Ministrante:"></h:outputLabel>
+				<h:inputText id="ministrante" label="Ministrante:"
+					value="#{eventoBean.evento.ministrante}" required="true"
+					requiredMessage="#{msg.requererMinistrante}" />
+				<h:message for="ministrante" />
+
+				<h:outputLabel for="quant" value="Quantidade de Participante:"></h:outputLabel>
+				<h:inputText id="quant" label="Quantidade de Participante:"
+					value="#{eventoBean.evento.quantParticipante}" required="true"
+					requiredMessage="#{msg.requererQuantParti}"
+					validatorMessage="#{msg.erroQuant}">
+					<f:validateLongRange maximum="50" />
+				</h:inputText>
+				<h:message for="quant" />
+
+				<h:outputLabel for="dataEvento" value="Data do Evento:"></h:outputLabel>
+				<p:inputMask id="dataEvento" value="#{eventoBean.evento.dataEvento}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+				<h:message for="dataEvento" />
+				<h:inputHidden value="#{eventoBean.evento.id}" />
+
+
+				<h:commandButton class="btn btn-success" value="Atualizar"
+					action="#{eventoBean.atualizarEvento}" required="true" />
+
+
+
+			</h:panelGrid>
+		</h:form>
+
+		<h:messages globalOnly="true" />
+	</ui:define>
+
+</ui:composition>
