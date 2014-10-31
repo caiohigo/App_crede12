@@ -8,10 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.ufc.dao.AtividadeDAO;
 import br.ufc.dao.AtividadeJPADAO;
-import br.ufc.dao.ParticipanteDAO;
-import br.ufc.dao.ParticipanteJPADAO;
 import br.ufc.model.Evento;
-import br.ufc.model.Participante;
 import br.ufc.service.EventoService;
 import br.ufc.service.EventoServiceImpl;
 
@@ -112,8 +109,6 @@ public class EventoBean {
 				return "evento/listarParticipantesEmAtividade.xhtml";
 		}
 	*/
-		
-		
 	
 	public Evento getEvento() {
 		return evento;

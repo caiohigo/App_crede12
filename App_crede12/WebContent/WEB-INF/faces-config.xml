@@ -15,4 +15,9 @@
 		<message-bundle>messages</message-bundle>
 	</application>
 	
+	<converter>
+        <converter-id>participanteConverter</converter-id>
+        <converter-class>br.ufc.controller.ParticipanteConverter</converter-class>
+    </converter>
+	
 </faces-config>

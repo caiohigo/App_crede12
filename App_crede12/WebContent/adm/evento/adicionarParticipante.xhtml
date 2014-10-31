@@ -1,0 +1,45 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Adicionar Participante em #{eventoParticipanteBean.evento.nome}
+	</ui:define>
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+
+
+
+		<h:form>
+
+			<h:panelGrid columns="1">
+
+				<h:outputLabel value="Selecione todos os participantes :" />
+				<p:selectManyMenu id="selecionarParticipante"
+					value="#{eventoParticipanteBean.participantesSelecionados}"
+					converter="participanteConverter" var="p" filter="true"
+					filterMatchMode="contains" showCheckbox="true">
+					<f:selectItems value="#{eventoParticipanteBean.participantes}"
+						var="participante" itemLabel="#{participante.nome}"
+						itemValue="#{participante}" />
+
+					<p:column>
+						<h:outputText value="#{p.nome}" />
+					</p:column>
+				</p:selectManyMenu>
+
+			</h:panelGrid>
+			
+			<hr />
+			
+			<h:commandButton class="btn btn-primary" value="Salvar"
+				action="#{eventoParticipanteBean.adicionarParticipante}" />
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

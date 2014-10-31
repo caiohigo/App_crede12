@@ -3,6 +3,8 @@ package br.ufc.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ParticipanteEvento {
@@ -10,8 +12,14 @@ public class ParticipanteEvento {
 	@Id
 	@GeneratedValue
 	private long id;
-	private String comentario;
-	private String tipoParticipacao;
+
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "id_participante")
+	private Participante participante;
+
+	@ManyToOne
+	@JoinColumn(nullable = false, name = "id_evento")
+	private Evento evento;
 
 	public long getId() {
 		return id;
@@ -21,20 +29,20 @@ public class ParticipanteEvento {
 		this.id = id;
 	}
 
-	public String getComentario() {
-		return comentario;
+	public Participante getParticipante() {
+		return participante;
 	}
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+	public void setParticipante(Participante participante) {
+		this.participante = participante;
 	}
 
-	public String getTipoParticipacao() {
-		return tipoParticipacao;
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setTipoParticipacao(String tipoParticipacao) {
-		this.tipoParticipacao = tipoParticipacao;
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
 
 }

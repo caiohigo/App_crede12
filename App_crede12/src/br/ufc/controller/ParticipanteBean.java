@@ -91,7 +91,7 @@ public class ParticipanteBean {
 
 	}
 
-	public String addParticipante() {
+	/*public String addParticipante() {
 
 		AtividadeDAO aDao = new AtividadeJPADAO();
 
@@ -110,7 +110,7 @@ public class ParticipanteBean {
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
 		return null;
-	}
+	}*/
 
 	public String buscarParticipante() {
 
@@ -127,7 +127,7 @@ public class ParticipanteBean {
 
 	}
 
-	public String removerParticipante() {
+	/*public String removerParticipante() {
 
 		Participante participante = new Participante();
 
@@ -146,7 +146,7 @@ public class ParticipanteBean {
 		dao.commit();
 
 		return "evento/listarAtividadesDoParticipante.xhtml";
-	}
+	}*/
 
 	public void deletarParticipante() {
 

@@ -1,5 +1,6 @@
 package br.ufc.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,22 +31,10 @@ public class Evento {
 	private Date dataEvento;
 	
 	
-	@OneToMany
-	@JoinColumn(name="id_evento")
+	@OneToMany(mappedBy="evento")
 	private List<ParticipanteEvento> participantesDoEvento;
 	
-	
 
-	@ManyToMany(mappedBy="eventos", cascade={CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},fetch=FetchType.EAGER)
-    private List<Participante> participantes;
-	
-	
-	public List<Participante> getParticipantes() {
-		return participantes;
-	}
-	public void setParticipantes(List<Participante> participantes) {
-		this.participantes = participantes;
-	}
 	public int getId() {
 		return id;
 	}
@@ -76,8 +65,6 @@ public class Evento {
 	public void setDataEvento(Date dataEvento) {
 		this.dataEvento = dataEvento;
 	}
-	
-	
 	
 
 	
