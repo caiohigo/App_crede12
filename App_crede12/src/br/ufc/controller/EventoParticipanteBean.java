@@ -10,8 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.ufc.dao.AtividadeDAO;
 import br.ufc.dao.AtividadeJPADAO;
+import br.ufc.dao.ParticipanteDAO;
+import br.ufc.dao.ParticipanteEventoDAO;
+import br.ufc.dao.ParticipanteEventoJPADAO;
+import br.ufc.dao.ParticipanteJPADAO;
 import br.ufc.model.Evento;
 import br.ufc.model.Participante;
+import br.ufc.model.ParticipanteEvento;
 
 @SessionScoped
 @ManagedBean(name = "eventoParticipanteBean")
@@ -67,6 +72,25 @@ public class EventoParticipanteBean {
 		
 		
 		return "/adm/evento/listarParticipantes";
+	}
+	
+	public void removerParticipante(){
+		
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		ParticipanteDAO pDao = new ParticipanteJPADAO();
+		Participante participante = pDao.find(id);
+		
+		ParticipanteEventoDAO peDao = new ParticipanteEventoJPADAO();
+		ParticipanteEvento pe = peDao.getParticipanteEvento(participante, evento);
+		
+		peDao.delete(pe);
+		
+		AtividadeDAO atividadeDao = new AtividadeJPADAO();
+		
+		this.participantes = atividadeDao.participanteNoEvento(evento);
+		
 	}
 	
 	public Evento getEvento() {

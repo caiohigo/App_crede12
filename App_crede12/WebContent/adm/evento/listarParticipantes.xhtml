@@ -13,18 +13,13 @@
 
 		<h:form id="form-eventos">
 			<p:dataTable id="listagem" var="participante"
-				value="#{eventoParticipanteBean.participantes}" paginator="true" rows="10"
-				selectionMode="single" rowKey="#{participante.id}"
+				value="#{eventoParticipanteBean.participantes}" paginator="true"
+				rows="10" selectionMode="single" rowKey="#{participante.id}"
 				emptyMessage="Sem Participantes Cadastrados">
 
 				<f:facet name="header">
 				Participantes no evento : #{eventoParticipanteBean.evento.nome}
 			</f:facet>
-
-				<p:column>
-					<p:rowToggler />
-				</p:column>
-
 
 				<p:column headerText="Nome">
 					<h:outputText value="#{participante.nome}"></h:outputText>
@@ -33,13 +28,22 @@
 				<p:column headerText="E-mail">
 					<h:outputText value="#{participante.email}"></h:outputText>
 				</p:column>
-				
+
 				<p:column headerText="Telefone">
 					<h:outputText value="#{participante.telefone}"></h:outputText>
 				</p:column>
-				
+
 				<p:column headerText="CPF">
 					<h:outputText value="#{participante.cpf}"></h:outputText>
+				</p:column>
+
+
+				<p:column headerText="Remover Participante">
+					<p:commandButton icon="ui-icon-trash" title="Remover Evento"
+						action="#{eventoParticipanteBean.removerParticipante}" update="listagem">
+						<f:ajax execute="@form" render=":form-eventos" />
+						<f:param name="id" value="#{participante.id}" />
+					</p:commandButton>
 				</p:column>
 
 			</p:dataTable>
