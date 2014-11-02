@@ -28,8 +28,9 @@ public class Hospedagem {
 	@Temporal(TemporalType.DATE)
 	private Date dataSaida;
 	
-	private String sexo;
-
+	private String quarto;
+	
+	private String obs;
 	
 	
 	public int getId() {
@@ -64,13 +65,23 @@ public class Hospedagem {
 		this.dataSaida = dataSaida;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getQuarto() {
+		return quarto;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setQuarto(String quarto) {
+		this.quarto = quarto;
 	}
+
+	public String getObs() {
+		return obs;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
+	}
+
+	
 	
 	
 	
