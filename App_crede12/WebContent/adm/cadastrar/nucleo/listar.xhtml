@@ -1,0 +1,58 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Lista de Carros
+	</ui:define>
+	<ui:define name="principal">
+		<h:form>
+			<p:dataTable id="listagem" var="participante"
+				value="#{carroBean.carros}" paginator="true" rows="10"
+				selectionMode="single" rowKey="#{carro.id}"
+				emptyMessage="Sem Participantes cadastrados">
+
+				<f:facet name="header">
+				Lista de Participantes
+			</f:facet>
+
+				<p:column>
+					<p:rowToggler />
+				</p:column>
+
+				<p:rowExpansion>
+					<h:outputText value="Nome do Nucleo: #{nucleo.nome}"></h:outputText>
+					<br />
+					<h:outputText value="Sigla: #{nucleo.sigla}"></h:outputText>
+					<br />
+					<h:outputText value="Coordenador: #{nucleo.coordenador}"></h:outputText>
+					<br />
+				</p:rowExpansion>
+
+				<p:column headerText="Núcleo">
+					<h:outputText value="#{nucleo.sigla}"></h:outputText>
+				</p:column>
+
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Editar" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-wrench" title="Editar Participante"
+						action="#{carroBean.buscarCarro}" update="listagem">
+						<f:param name="id" value="#{carro.id}" />
+					</p:commandButton>
+
+				</p:column>
+
+				
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>

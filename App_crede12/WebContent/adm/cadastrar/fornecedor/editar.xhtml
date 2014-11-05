@@ -1,0 +1,42 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Atualizar Carro
+	</ui:define>
+	<ui:define name="principal">
+
+		<h:messages globalOnly="true" />
+
+		<h:form>
+
+
+				<h:panelGrid columns="2">
+
+					<h:outputLabel  for="nome" value="Nome do Fornecedor:"></h:outputLabel>
+				<p:inputText id="nome" value="#{fornecedorBean.fornecedor.nome}" />
+				
+
+				<h:outputLabel  for="fone" value="Telefone:"></h:outputLabel>
+				<p:inputText id="fone" value="#{fornecedorBean.fornecedor.fone}" />
+
+				
+					<h:inputHidden value="#{fornecedorBean.fornecedor.id}" />
+
+
+					<h:commandButton value="Cadastrar"
+					action="#{fornecedorBean.atualizarFornecedor()}" required="true"  class="btn btn-success" />
+
+
+
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+
+
+</ui:composition>

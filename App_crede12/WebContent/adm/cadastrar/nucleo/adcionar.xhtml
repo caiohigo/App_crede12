@@ -1,0 +1,37 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Adicionar Núcleo
+	</ui:define>
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+
+		<h:form>
+			<h:panelGrid columns="2">
+
+				<h:outputLabel  for="nome" value="Nome do Setor:"></h:outputLabel>
+				<p:inputText id="nome" value="#{nucleoBean.nucleo.nome}" />
+				
+
+				<h:outputLabel  for="sigla" value="Sigla:"></h:outputLabel>
+				<p:inputText id="sigla" value="#{nucleoBean.nucleo.sigla}" />
+				
+				<h:outputLabel  for="coord" value="Coordenador:"></h:outputLabel>
+				<p:inputText id="coord" value="#{nucleoBean.nucleo.coordenador}" />
+
+				<h:commandButton value="Cadastrar"
+					action="#{nucleoBean.inserirNucleo()}" required="true"  class="btn btn-success" />
+
+			</h:panelGrid>
+		</h:form>
+
+
+	</ui:define>
+
+
+</ui:composition>

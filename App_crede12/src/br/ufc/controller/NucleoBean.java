@@ -6,30 +6,30 @@ import javax.faces.context.FacesContext;
 
 
 
-import br.ufc.model.Quarto;
+import br.ufc.model.Nucleo;
 import br.ufc.service.GenericService;
 import br.ufc.service.GenericServiceImpl;
 
-@ManagedBean(name="quartoBean")
-public class QuartoBean {
+@ManagedBean(name="nucleoBean")
+public class NucleoBean {
 	
-	Quarto quarto = new Quarto();
+	Nucleo nucleo = new Nucleo();
 	
-	
-	public Quarto getQuarto() {
-		return quarto;
+
+	public Nucleo getNucleo() {
+		return nucleo;
 	}
 
 
-	public void setQuarto(Quarto quarto) {
-		this.quarto = quarto;
+	public void setNucleo(Nucleo nucleo) {
+		this.nucleo = nucleo;
 	}
 
 
-	public String inserirQuarto() {
+	public String inserirNucleo() {
 		
-		GenericService<Quarto> quartoService = new GenericServiceImpl<Quarto>();
-		quartoService.save(quarto);
+		GenericService<Nucleo> nucleoService = new GenericServiceImpl<Nucleo>();
+		nucleoService.save(nucleo);
 			
 		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Inserido com sucesso",
 				"Inserido com sucesso");
@@ -38,5 +38,5 @@ public class QuartoBean {
 		return "";
 
 		}
-
+	
 }

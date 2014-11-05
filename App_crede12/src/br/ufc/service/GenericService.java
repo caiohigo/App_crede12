@@ -9,7 +9,7 @@ public interface GenericService<T> {
 
 	public abstract void update(T entity);
 
-	public abstract T find(Class<T> entityClass, Object id);
+	public abstract T find(Class<T> entityClass ,Object id);
 
 	public abstract List<T> find(Class<T> entityClass);
 
