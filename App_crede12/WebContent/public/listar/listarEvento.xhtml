@@ -1,0 +1,69 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="nome_cabecalho">
+		Lista de Eventos
+	</ui:define>
+	<ui:define name="principal">
+
+		<h:form id="form-eventos">
+			<p:dataTable id="listagem" var="evento"
+				value="#{eventoBean.atividades}" paginator="true" rows="10"
+				selectionMode="single" rowKey="#{evento.id}"
+				emptyMessage="Sem Eventos Cadastrados">
+
+				<f:facet name="header">
+				Eventos 
+			</f:facet>
+
+				<p:column>
+					<p:rowToggler />
+				</p:column>
+
+				<p:rowExpansion>
+					<h:outputText value="Evento: #{evento.nome}"></h:outputText>
+					<br />
+					<h:outputText value="Ministrante: #{evento.ministrante}"></h:outputText>
+					<br />
+					<h:outputText value="Quantidade: #{evento.quantParticipante}"></h:outputText>
+					<br />
+					<h:outputText value="Data do Evento: #{evento.dataEvento}"></h:outputText>
+					<br />
+				</p:rowExpansion>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{evento.nome}"></h:outputText>
+				</p:column>
+
+				
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Listar Participantes" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-circle-triangle-s" title="Adicionar Participante"
+						action="#{eventoParticipanteBean.prepararListarParticipante}" update="listagem">
+						<f:param name="id" value="#{evento.id}" />
+					</p:commandButton>
+
+				</p:column>
+				
+
+
+				</p:column>
+
+
+			</p:dataTable>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+
+

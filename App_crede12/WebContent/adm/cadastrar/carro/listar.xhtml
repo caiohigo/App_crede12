@@ -10,13 +10,13 @@
 	</ui:define>
 	<ui:define name="principal">
 		<h:form>
-			<p:dataTable id="listagem" var="participante"
+			<p:dataTable id="listagem" var="carros"
 				value="#{carroBean.carros}" paginator="true" rows="10"
 				selectionMode="single" rowKey="#{carro.id}"
-				emptyMessage="Sem Participantes cadastrados">
+				emptyMessage="Sem carros cadastrados">
 
 				<f:facet name="header">
-				Lista de Participantes
+				Lista de carros
 			</f:facet>
 
 				<p:column>
@@ -39,7 +39,7 @@
 					<f:facet name="header">
 						<h:outputText value="Editar" />
 					</f:facet>
-					<p:commandButton icon="ui-icon-wrench" title="Editar Participante"
+					<p:commandButton icon="ui-icon-wrench" title="Editar carro"
 						action="#{carroBean.buscarCarro}" update="listagem">
 						<f:param name="id" value="#{carro.id}" />
 					</p:commandButton>

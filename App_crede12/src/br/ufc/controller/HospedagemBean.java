@@ -1,11 +1,18 @@
 package br.ufc.controller;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import br.ufc.dao.GenericDAO;
+import br.ufc.dao.GenericJPADAO;
+import br.ufc.dao.ParticipanteDAO;
+import br.ufc.dao.ParticipanteJPADAO;
 import br.ufc.model.Hospedagem;
+import br.ufc.model.Participante;
 import br.ufc.service.HospedagemService;
 import br.ufc.service.HospedagemServiceImpl;
 import br.ufc.service.ViagemService;
@@ -55,6 +62,17 @@ public class HospedagemBean {
 		
 		
 	}
+	
+
+public List<Hospedagem> getHospedagens() {
+	
+	GenericDAO<Hospedagem> hospeService = new GenericJPADAO<Hospedagem>();
+	List<Hospedagem> l = hospeService.find();
+	
+
+
+	return l;
+}
 	
 
 }

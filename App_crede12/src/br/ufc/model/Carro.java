@@ -5,9 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-@ManagedBean(name = "carro")
 @Entity
+@ManagedBean(name = "carro")
 @Table(name="carro")
 public class Carro {
 	

@@ -1,0 +1,28 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Escolha o que você deseja fazer
+	</ui:define>
+	<ui:define name="principal">
+	<h:link outcome="/public/hospedagem/listarHospedagem">
+		<h:graphicImage library="img" name="hotel.png" align="center"
+			width="200" height="200" />
+			</h:link>
+		<p:separator />
+		
+		<h:link outcome="/adm/viagem/listarViagem">
+		<h:graphicImage library="img" name="viagens.png" align="center"
+			width="220" height="220"  />
+		</h:link>
+			
+			
+		<!-- colocar modulos aqui -->
+	</ui:define>
+
+
+</ui:composition>

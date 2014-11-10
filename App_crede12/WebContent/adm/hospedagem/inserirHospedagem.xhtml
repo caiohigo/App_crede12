@@ -1,20 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
+	<ui:define name="nome_cabecalho">
+		Adicionar Hospedagem
 	</ui:define>
-	<ui:define name="content">
-	    Add your content here or delete to use the default
+	<ui:define name="principal">
+		<h:messages globalOnly="true" />
+
+		<h:form>
+			<h:panelGrid columns="2">
+
+				<h:outputLabel  for="carro" value="Nome:"></h:outputLabel>
+				<p:inputText id="carro" value="#{hospedagembean.hospedagem.nome}" />
+				
+
+				<h:outputLabel  for="data1" value="Data Entrada:"></h:outputLabel>
+				<p:inputText id="data1" value="#{hospedagembean.hospedagem.dataEntrada}" />
+
+				<h:outputLabel  for="data2" value="Data Saida:"></h:outputLabel>
+				<p:inputText id="data2" value="#{hospedagembean.hospedagem.dataSaida}" />
+				
+				<h:outputLabel  for="quarto" value="Quarto:"></h:outputLabel>  <!-- selecOnMenu -->
+				<p:inputText id="quarto" value="#{hospedagembean.hospedagem.quarto}" />
+				
+				<h:outputLabel  for="obs" value="Observações:"></h:outputLabel>
+				<p:inputText id="obs" value="#{hospedagembean.hospedagem.obs}" />
+				
+				
+				
+				<h:commandButton value="Cadastrar"
+					action="#{hospedagembean.inserirHospedagem()}" required="true"  class="btn btn-success" />
+
+			</h:panelGrid>
+		</h:form>
+
+
 	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
+
+
 </ui:composition>
-</html>
