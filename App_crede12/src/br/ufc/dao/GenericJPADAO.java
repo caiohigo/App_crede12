@@ -35,6 +35,12 @@ public class GenericJPADAO<T> implements GenericDAO<T> {
 			return getEm().createQuery(cq).getResultList();
 		}
 	 
+		public List<T> find(Class type) {
+			CriteriaQuery<T> cq = getEm().getCriteriaBuilder().createQuery(persistentClass);
+			cq.from(type);
+			return getEm().createQuery(cq).getResultList();
+		}
+		
 		public EntityManager getEm() {
 			return JPAUtils.getEntityManager();
 		}

@@ -31,7 +31,7 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 
 	@Override
 	public List<T> find(Class<T> entityClass) {
-		return genericDao.find();
+		return genericDao.find(entityClass);
 	}
 
 	@Override

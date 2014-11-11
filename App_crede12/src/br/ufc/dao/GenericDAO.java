@@ -14,6 +14,8 @@ public interface GenericDAO<T> {
 	
 	public List<T> find();
 	
+	public List<T> find(Class type);	
+	
 	public void beginTransaction();
 	
 	public void commit();

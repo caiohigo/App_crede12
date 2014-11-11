@@ -4,5 +4,5 @@ import br.ufc.model.Carro;
 
 
 public interface CadastroService extends GenericService<Carro> {
-
+	
 }

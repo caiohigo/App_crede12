@@ -1,12 +1,11 @@
 package br.ufc.model;
 
-import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@ManagedBean(name = "carro")
 @Table(name="carro")
 public class Carro {
 	

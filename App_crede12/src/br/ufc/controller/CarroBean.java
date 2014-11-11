@@ -17,6 +17,8 @@ import br.ufc.service.FuncionarioService;
 import br.ufc.service.FuncionarioServiceImpl;
 import br.ufc.service.GenericService;
 import br.ufc.service.GenericServiceImpl;
+import br.ufc.dao.CarroDAO;
+import br.ufc.dao.CarroJPADAO;
 import br.ufc.dao.GenericDAO;
 import br.ufc.dao.GenericJPADAO;
 import br.ufc.dao.ParticipanteDAO;
@@ -44,9 +46,10 @@ public class CarroBean {
 
 	public List<Carro> getCarros() {
 
-		CadastroService carroService  = new CadastroServiceImpl(); 
-		List<Carro> l = carroService.find(Carro.class);
-
+		CarroDAO carroDAO = new CarroJPADAO();
+		List<Carro> l = carroDAO.find();
+		
+		
 		return l;
 	}
 	

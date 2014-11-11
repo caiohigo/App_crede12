@@ -10,7 +10,7 @@
 	</ui:define>
 	<ui:define name="principal">
 		<h:form>
-			<p:dataTable id="listagem" var="carros"
+			<p:dataTable id="listagem" var="carro"
 				value="#{carroBean.carros}" paginator="true" rows="10"
 				selectionMode="single" rowKey="#{carro.id}"
 				emptyMessage="Sem carros cadastrados">
