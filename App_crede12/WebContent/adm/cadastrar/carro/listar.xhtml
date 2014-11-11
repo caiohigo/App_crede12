@@ -9,7 +9,7 @@
 		Lista de Carros
 	</ui:define>
 	<ui:define name="principal">
-		<h:form>
+		<h:form id = "form-eventos">
 			<p:dataTable id="listagem" var="carro"
 				value="#{carroBean.carros}" paginator="true" rows="10"
 				selectionMode="single" rowKey="#{carro.id}"
@@ -45,6 +45,22 @@
 					</p:commandButton>
 
 				</p:column>
+				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Excluir" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-trash" title="Remover Carro"
+						action="#{carroBean.deletarCarro}" update="listagem">
+						<f:ajax execute="@form" render=":form-eventos" />
+						<f:param name="id" value="#{carro.id}" />
+					</p:commandButton>
+
+
+
+				</p:column>
+				
+				
 
 				
 

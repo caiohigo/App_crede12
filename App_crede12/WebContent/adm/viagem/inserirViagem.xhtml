@@ -31,24 +31,17 @@
 				<p:inputMask id="horasaida" label="Horário de Saida:"
 					value="#{viagemBean.viagem.horarioSaida}" required="true"
 					mask="99:99"></p:inputMask>
-					
-					<h:outputLabel for="horaChegada" value="Horário de Saida:"></h:outputLabel>
+
+				<h:outputLabel for="horaChegada" value="Horário de Saida:"></h:outputLabel>
 				<p:inputMask id="horaChagada" label="Horário de Chegada:"
 					value="#{viagemBean.viagem.horarioChegada}" required="true"
 					mask="99:99"></p:inputMask>
 
 				<h:outputLabel for="municipio" value="Município:"></h:outputLabel>
-				<h:selectOneMenu id="municipio"
-					value="#{viagemBean.viagem.municipio}" style= "width:150px" >
-					<f:selectItem itemValue="" itemLabel="Selecione a Cidade" />
-					<f:selectItem itemValue="Quixadá" itemLabel="Quixadá" />
-					<f:selectItem itemValue="Boa Viagem" itemLabel="Boa Viagem" />
-					<f:selectItem itemValue="Quixeramobim" itemLabel="Quixeramobim" />
-					<f:selectItem itemValue="Madalena" itemLabel="Madalena" />
-					<f:selectItem itemValue="Ibaretama" itemLabel="Ibaretama" />
+				<h:selectOneMenu value="#{viagemBean.viagem.municipio}">
+					<f:selectItems value="#{viagemBean.}" />
 				</h:selectOneMenu>
 				
-
 
 
 				<h:outputLabel for="evento" value="Evento:"></h:outputLabel>

@@ -96,19 +96,7 @@ public class EventoBean {
 	}
 	
 	
-	/*			public String participantesEmAtividade(){
-				
-				HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-				
-				int id = Integer.parseInt(request.getParameter("id"));
-				
-				AtividadeDAO dao = new AtividadeJPADAO();
-				
-				evento = dao.find(id);
-			
-				return "evento/listarParticipantesEmAtividade.xhtml";
-		}
-	*/
+	
 	
 	public Evento getEvento() {
 		return evento;

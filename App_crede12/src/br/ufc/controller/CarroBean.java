@@ -17,6 +17,8 @@ import br.ufc.service.FuncionarioService;
 import br.ufc.service.FuncionarioServiceImpl;
 import br.ufc.service.GenericService;
 import br.ufc.service.GenericServiceImpl;
+import br.ufc.dao.AtividadeDAO;
+import br.ufc.dao.AtividadeJPADAO;
 import br.ufc.dao.CarroDAO;
 import br.ufc.dao.CarroJPADAO;
 import br.ufc.dao.GenericDAO;
@@ -24,6 +26,7 @@ import br.ufc.dao.GenericJPADAO;
 import br.ufc.dao.ParticipanteDAO;
 import br.ufc.dao.ParticipanteJPADAO;
 import br.ufc.model.Carro;
+import br.ufc.model.Evento;
 import br.ufc.model.Participante;
 
 @ManagedBean(name = "carroBean")
@@ -48,36 +51,47 @@ public class CarroBean {
 
 		CarroDAO carroDAO = new CarroJPADAO();
 		List<Carro> l = carroDAO.find();
-		
-		
+
 		return l;
 	}
-	
-	
 
 	public String buscarCarro() {
 
 		HttpServletRequest request = (HttpServletRequest) FacesContext
 				.getCurrentInstance().getExternalContext().getRequest();
 		int id = Integer.parseInt(request.getParameter("id"));
+
+		CarroDAO carroDAO = new CarroJPADAO();
+		carro = carroDAO.find(id);
 		
-		CadastroService carroService  = new CadastroServiceImpl(); 
-		carro = carroService.find(Carro.class,id);
-		
+
 		return "/adm/cadastrar/carro/editar";
 
 	}
 
 	public String atualizarCarro() {
 
-		CadastroService carroService  = new CadastroServiceImpl(); 
-		carroService.update(carro);
+		CarroDAO carroDAO = new CarroJPADAO();
+		carroDAO.update(carro);
 
 		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO,
 				"Atualizado com sucesso", "Atualizado com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
 		return "/adm/cadastrar/carro/listar";
+
+	}
+
+	public void deletarCarro() {
+
+		HttpServletRequest request = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		CarroDAO carroDAO = new CarroJPADAO();
+
+		Carro persistedCarro = carroDAO.find(id);
+		carroDAO.delete(persistedCarro);
 
 	}
 

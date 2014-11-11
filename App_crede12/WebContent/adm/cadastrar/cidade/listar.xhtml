@@ -6,17 +6,17 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="nome_cabecalho">
-		Lista de Carros
+		Lista de Cidades
 	</ui:define>
 	<ui:define name="principal">
-		<h:form>
-			<p:dataTable id="listagem" var="participante"
-				value="#{carroBean.carros}" paginator="true" rows="10"
-				selectionMode="single" rowKey="#{carro.id}"
-				emptyMessage="Sem Participantes cadastrados">
+		<h:form id="form-eventos">
+			<p:dataTable id="listagem" var="cidade"
+				value="#{cidadeBean.cidades}" paginator="true" rows="10"
+				selectionMode="single" rowKey="#{cidade.id}"
+				emptyMessage="Sem cidades cadastradas">
 
 				<f:facet name="header">
-				Lista de Participantes
+				Lista de Cidades
 			</f:facet>
 
 				<p:column>
@@ -39,14 +39,26 @@
 					<f:facet name="header">
 						<h:outputText value="Editar" />
 					</f:facet>
-					<p:commandButton icon="ui-icon-wrench" title="Editar Participante"
-						action="#{carroBean.buscarCarro}" update="listagem">
-						<f:param name="id" value="#{carro.id}" />
+					<p:commandButton icon="ui-icon-wrench" title="Editar Cidade"
+						action="#{cidadeBean.buscarCidade}" update="listagem">
+						<f:param name="id" value="#{cidade.id}" />
 					</p:commandButton>
 
 				</p:column>
 
-				
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Excluir" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-trash" title="Remover Cidade"
+						action="#{cidadeBean.deletarCidade}" update="listagem">
+						<f:ajax execute="@form" render=":form-eventos" />
+						<f:param name="id" value="#{cidade.id}" />
+					</p:commandButton>
+
+
+
+				</p:column>
 
 			</p:dataTable>
 		</h:form>
