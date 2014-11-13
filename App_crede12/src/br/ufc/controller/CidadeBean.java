@@ -22,12 +22,6 @@ import br.ufc.service.GenericServiceImpl;
 public class CidadeBean {
 
 	Cidade cidade = new Cidade();
-	
-	private List<Cidade> cidades;
-
-	public void setCidades(List<Cidade> cidades) {
-		this.cidades = cidades;
-	}
 
 	public Cidade getCidade() {
 		return cidade;

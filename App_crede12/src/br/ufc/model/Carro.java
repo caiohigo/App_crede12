@@ -1,5 +1,6 @@
 package br.ufc.model;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,6 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="carro")
+@ManagedBean (name="carro")
 public class Carro {
 	
 	@Id

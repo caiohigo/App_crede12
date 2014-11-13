@@ -39,20 +39,25 @@
 
 				<h:outputLabel for="municipio" value="Município:"></h:outputLabel>
 				<h:selectOneMenu value="#{viagemBean.viagem.municipio}">
-					<f:selectItems value="#{viagemBean.}" />
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="cidade" value="#{viagemBean.listaDeCidades}"
+						itemLabel="#{cidade.nome}" itemValue="#{cidade.nome}" />
 				</h:selectOneMenu>
 				
-
-
 				<h:outputLabel for="evento" value="Evento:"></h:outputLabel>
-				<h:inputText class="form-control" id="evento" label="Evento:"
-					value="#{viagemBean.viagem.evento}" required="true">
-				</h:inputText>
+				<h:selectOneMenu value="#{viagemBean.viagem.evento}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="evento" value="#{viagemBean.listaDeEventos}"
+						itemLabel="#{evento.nome}" itemValue="#{evento.nome}" />
+				</h:selectOneMenu>
 
 				<h:outputLabel for="tecnico" value="Técnico:"></h:outputLabel>
-				<h:inputText class="form-control" id="tecnico" label="Técnico:"
-					value="#{viagemBean.viagem.tecnico}" required="true">
-				</h:inputText>
+				<h:selectOneMenu value="#{viagemBean.viagem.tecnico}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="tecnico"
+						value="#{viagemBean.listaDeParticipantes}"
+						itemLabel="#{participante.nome}" itemValue="#{participante.nome}" />
+				</h:selectOneMenu>
 
 				<h:outputLabel for="distancia" value="Distancia:"></h:outputLabel>
 				<h:inputText class="form-control" id="distancia" label="Distancia:"
@@ -60,16 +65,15 @@
 				</h:inputText>
 
 				<h:outputLabel for="carro" value="Carro:"></h:outputLabel>
-				<h:inputText class="form-control" id="carro" label="Carro:"
-					value="#{viagemBean.viagem.carro}" required="true">
-				</h:inputText>
-
+				<h:selectOneMenu value="#{viagemBean.viagem.carro}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="carro" value="#{viagemBean.listaDeCarros}"
+						itemLabel="#{carro.veiculo}" itemValue="#{carro.veiculo}" />
+				</h:selectOneMenu>
 
 				<h:commandButton value="Cadastrar"
 					action="#{viagemBean.inserirViagem}" required="true"
 					class="btn btn-success" />
-
-
 			</h:panelGrid>
 		</h:form>
 
