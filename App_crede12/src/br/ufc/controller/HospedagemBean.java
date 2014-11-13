@@ -13,11 +13,17 @@ import br.ufc.dao.GenericDAO;
 import br.ufc.dao.GenericJPADAO;
 import br.ufc.dao.HospedagemDAO;
 import br.ufc.dao.HospedagemJPADAO;
+import br.ufc.dao.LocalEventoDAO;
+import br.ufc.dao.LocalEventoJPADAO;
 import br.ufc.dao.ParticipanteDAO;
 import br.ufc.dao.ParticipanteJPADAO;
+import br.ufc.dao.QuartoDAO;
+import br.ufc.dao.QuartoJPADAO;
 import br.ufc.model.Carro;
 import br.ufc.model.Hospedagem;
+import br.ufc.model.LocalEvento;
 import br.ufc.model.Participante;
+import br.ufc.model.Quarto;
 import br.ufc.service.HospedagemService;
 import br.ufc.service.HospedagemServiceImpl;
 import br.ufc.service.ViagemService;
@@ -63,7 +69,7 @@ public class HospedagemBean {
 		HospedagemDAO hospedagemDAO = new HospedagemJPADAO();
 		hospedagem = hospedagemDAO.find(id);
 
-		return "/adm/cadastrar/hospedagem/editar";
+		return "/adm/hospedagem/atualizarHospedagem";
 
 	}
 
@@ -76,7 +82,7 @@ public class HospedagemBean {
 				"Atualizado com sucesso", "Atualizado com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "/adm/cadastrar/hospedagem/listar";
+		return "/adm/hospedagem/listarHospedagem";
 
 	}
 
@@ -91,6 +97,11 @@ public class HospedagemBean {
 		Hospedagem persistedHospedagem = hospedagemDAO.find(id);
 		hospedagemDAO.delete(persistedHospedagem);
 
+	}
+	
+	public List<Quarto> getListaDeQuartos() {
+		QuartoDAO dao = new QuartoJPADAO();
+		return dao.find();
 	}
 
 }

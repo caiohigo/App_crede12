@@ -24,11 +24,17 @@ public class Evento {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String nome;
-	private String ministrante;
-	private int quantParticipante;
 	@Temporal(TemporalType.DATE)
-	private Date dataEvento;
+	private Date dataInicio;
+	@Temporal(TemporalType.DATE)
+	private Date dataFinal;
+	private String nome;
+	private String nucleo;
+	private String funcionario;
+	private String local;
+	private String fornecedor;
+	private int quantParticipante;
+
 	
 	
 	@OneToMany(mappedBy="evento")
@@ -41,12 +47,7 @@ public class Evento {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMinistrante() {
-		return ministrante;
-	}
-	public void setMinistrante(String ministrante) {
-		this.ministrante = ministrante;
-	}
+	
 	public int getQuantParticipante() {
 		return quantParticipante;
 	}
@@ -59,11 +60,48 @@ public class Evento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataEvento() {
-		return dataEvento;
+	public Date getDataInicio() {
+		return dataInicio;
 	}
-	public void setDataEvento(Date dataEvento) {
-		this.dataEvento = dataEvento;
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+	public Date getDataFinal() {
+		return dataFinal;
+	}
+	public void setDataFinal(Date dataFinal) {
+		this.dataFinal = dataFinal;
+	}
+	public String getNucleo() {
+		return nucleo;
+	}
+	public void setNucleo(String nucleo) {
+		this.nucleo = nucleo;
+	}
+	public String getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(String funcionario) {
+		this.funcionario = funcionario;
+	}
+	public String getLocal() {
+		return local;
+	}
+	public void setLocal(String local) {
+		this.local = local;
+	}
+	public String getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(String fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	public List<ParticipanteEvento> getParticipantesDoEvento() {
+		return participantesDoEvento;
+	}
+	public void setParticipantesDoEvento(
+			List<ParticipanteEvento> participantesDoEvento) {
+		this.participantesDoEvento = participantesDoEvento;
 	}
 	
 

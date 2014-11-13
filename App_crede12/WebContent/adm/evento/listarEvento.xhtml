@@ -26,17 +26,25 @@
 				</p:column>
 
 				<p:rowExpansion>
-					<h:outputText value="Evento: #{evento.nome}"></h:outputText>
+					<h:outputText value="Data Inicio: #{evento.dataInicio}"></h:outputText>
 					<br />
-					<h:outputText value="Ministrante: #{evento.ministrante}"></h:outputText>
+					<h:outputText value="Data Final: #{evento.dataFinal}"></h:outputText>
 					<br />
-					<h:outputText value="Quantidade: #{evento.quantParticipante}"></h:outputText>
+					<h:outputText value="Nome do Evento: #{evento.nome}"></h:outputText>
 					<br />
-					<h:outputText value="Data do Evento: #{evento.dataEvento}"></h:outputText>
+					<h:outputText value="Núcleo Responsável: #{evento.nucleo}"></h:outputText>
+					<br />
+					<h:outputText value="Funcionário Responsável: #{evento.funcionario}"></h:outputText>
+					<br />
+					<h:outputText value="Local do Evento: #{evento.local}"></h:outputText>
+					<br />
+					<h:outputText value="Fornecedor de Alimentos: #{evento.fornecedor}"></h:outputText>
+					<br />
+					<h:outputText value="Quantidade de Participantes: #{evento.quantParticipante}"></h:outputText>
 					<br />
 				</p:rowExpansion>
 
-				<p:column headerText="Nome">
+				<p:column headerText="Nome do Evento">
 					<h:outputText value="#{evento.nome}"></h:outputText>
 				</p:column>
 

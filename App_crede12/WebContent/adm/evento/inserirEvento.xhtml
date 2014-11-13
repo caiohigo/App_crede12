@@ -14,20 +14,65 @@
 		<h:form>
 
 			<h:panelGrid columns="3">
-				
+
+				<h:outputLabel for="dataInicio" value="Data Inicial:"></h:outputLabel>
+				<p:inputMask id="dataInicio" value="#{eventoBean.evento.dataInicio}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+				<h:message for="dataEvento" />
+
+				<h:outputLabel for="dataFinal" value="Data Final:"></h:outputLabel>
+				<p:inputMask id="dataFinal" value="#{eventoBean.evento.dataFinal}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+				<h:message for="dataEvento" value="data Inválida" />
+
 				<h:outputLabel for="nome" value="Evento:"></h:outputLabel>
-				<h:inputText class="form-control" id="nome" label="Evento:" value="#{eventoBean.evento.nome}"/>
+				<h:inputText class="form-control" id="nome" label="Evento:"
+					value="#{eventoBean.evento.nome}" />
 				<h:message for="nome" />
-				
-				<h:outputLabel for="ministrante" value="Ministrante:"></h:outputLabel>
-				<h:inputText class="form-control" id="ministrante" label="Ministrante:"
-					value="#{eventoBean.evento.ministrante}" required="true"
-					requiredMessage="#{msg.requererMinistrante}" />
-					
-				<h:message for="ministrante" />
+
+				<h:outputLabel for="nucleo" value="Núcleo Responsável:"></h:outputLabel>
+				<h:selectOneMenu value="#{eventoBean.evento.nucleo}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="nucleo" value="#{eventoBean.listaDeNucleos}"
+						itemLabel="#{nucleo.sigla}" itemValue="#{nucleo.nome}" />
+				</h:selectOneMenu>
+				<h:message for="nucleo" />
+
+				<h:outputLabel for="funcionario" value="Funcionário Responsável:"></h:outputLabel>
+				<h:selectOneMenu value="#{eventoBean.evento.funcionario}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="participante"
+						value="#{eventoBean.listaDeParticipantes}"
+						itemLabel="#{participante.nome}" itemValue="#{participante.nome}" />
+				</h:selectOneMenu>
+				<h:message for="funcionario" />
+
+				<h:outputLabel for="localEvento" value="Local do Evento:"></h:outputLabel>
+				<h:selectOneMenu value="#{eventoBean.evento.local}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="localEvento" value="#{eventoBean.listaDeLocais}"
+						itemLabel="#{localEvento.nome}" itemValue="#{localEvento.nome}" />
+				</h:selectOneMenu>
+				<h:message for="local" />
+
+				<h:outputLabel for="fornecedor" value="Fornecedor de Alimentação:"></h:outputLabel>
+				<h:selectOneMenu value="#{eventoBean.evento.fornecedor}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="fornecedor"
+						value="#{eventoBean.listaDeFornecedores}"
+						itemLabel="#{fornecedor.nome}" itemValue="#{fornecedor.nome}" />
+				</h:selectOneMenu>
+				<h:message for="fornecedor" />
 
 				<h:outputLabel for="quant" value="Quantidade de Participante:"></h:outputLabel>
-				<h:inputText class="form-control" id="quant" label="Quantidade de Participante:"
+				<h:inputText class="form-control" id="quant"
+					label="Quantidade de Participante:"
 					value="#{eventoBean.evento.quantParticipante}" required="true"
 					requiredMessage="#{msg.requererQuantParti}"
 					validatorMessage="#{msg.erroQuant}">
@@ -36,13 +81,7 @@
 
 				<h:message for="quant" />
 
-				<h:outputLabel for="dataEvento" value="Data do Evento:"></h:outputLabel>
-				<p:inputMask id="dataEvento" value="#{eventoBean.evento.dataEvento}"
-					mask="99/99/9999" required="true"
-					converterMessage="#{msg.data_invalida}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</p:inputMask>
-				<h:message for="dataEvento" />
+
 
 
 				<h:commandButton class="btn btn-success" value="Cadastrar"

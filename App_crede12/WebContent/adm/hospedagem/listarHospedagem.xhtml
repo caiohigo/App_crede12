@@ -7,7 +7,7 @@
 
 
 	<ui:define name="nome_cabecalho">
-		Lista de Viagens
+		Lista de Hopedes
 	</ui:define>
 
 
@@ -15,9 +15,10 @@
 	<ui:define name="principal">
 
 		<h:form id="form-eventos">
-			<p:dataTable id="listagem" var="hospedagem" value="#{hospedagembean.hospedagens}"
-				paginator="true" rows="10" selectionMode="single"
-				rowKey="#{hospedagem.id}" emptyMessage="Sem Hospedes Cadastrados">
+			<p:dataTable id="listagem" var="hospedagem"
+				value="#{hospedagembean.hospedagens}" paginator="true" rows="10"
+				selectionMode="single" rowKey="#{hospedagem.id}"
+				emptyMessage="Sem Hospedes Cadastrados">
 
 				<f:facet name="header">
 				Hospedes 
@@ -41,14 +42,35 @@
 
 				</p:rowExpansion>
 
-				<p:column headerText="Nome">
-					<h:outputText value="#{hospedagem.quarto}"></h:outputText>
+				<p:column headerText="Nome do Hospede">
+					<h:outputText value="#{hospedagem.nome}"></h:outputText>
 				</p:column>
 
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Editar" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-wrench" title="Editar Hospede"
+						action="#{hospedagembean.buscarHospedagem}" update="listagem">
+						<f:param name="id" value="#{hospedagem.id}" />
+					</p:commandButton>
+
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Excluir" />
+					</f:facet>
+					<p:commandButton icon="ui-icon-trash" title="Remover Hospede"
+						action="#{hospedagembean.deletarHospedagem}" update="listagem">
+						<f:ajax execute="@form" render=":form-eventos" />
+						<f:param name="id" value="#{hospedagem.id}" />
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
-			
-			
-			
+
+
+
 		</h:form>
 
 	</ui:define>

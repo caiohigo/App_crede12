@@ -12,24 +12,39 @@
 		<h:messages globalOnly="true" />
 
 		<h:form>
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="3">
 
-				<h:outputLabel  for="carro" value="Nome:"></h:outputLabel>
-				<p:inputText id="carro" value="#{hospedagembean.hospedagem.nome}" />
-				
+				<h:outputLabel  for="nome" value="Nome:"></h:outputLabel>
+				<p:inputText id="nome" value="#{hospedagembean.hospedagem.nome}" />
+				<h:message for="nome" />
 
 				<h:outputLabel  for="data1" value="Data Entrada:"></h:outputLabel>
-				<p:inputText id="data1" value="#{hospedagembean.hospedagem.dataEntrada}" />
+				<p:inputMask id="data1" value="#{hospedagembean.hospedagem.dataEntrada}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+				<h:message for="data1" />
 
 				<h:outputLabel  for="data2" value="Data Saida:"></h:outputLabel>
-				<p:inputText id="data2" value="#{hospedagembean.hospedagem.dataSaida}" />
+				<p:inputMask id="data2" value="#{hospedagembean.hospedagem.dataSaida}"
+					mask="99/99/9999" required="true"
+					converterMessage="#{msg.data_invalida}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputMask>
+				<h:message for="data2" />
 				
-				<h:outputLabel  for="quarto" value="Quarto:"></h:outputLabel>  <!-- selecOnMenu -->
-				<p:inputText id="quarto" value="#{hospedagembean.hospedagem.quarto}" />
+				<h:outputLabel  for="quarto" value="Quarto:"></h:outputLabel>  
+				<h:selectOneMenu value="#{hospedagembean.hospedagem.quarto}">
+					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
+					<f:selectItems var="quarto" value="#{hospedagembean.listaDeQuartos}"
+						itemLabel="#{quarto.quarto}" itemValue="#{quarto.quarto}" />
+				</h:selectOneMenu>
+				<h:message for="quarto" />
 				
 				<h:outputLabel  for="obs" value="Observações:"></h:outputLabel>
 				<p:inputText id="obs" value="#{hospedagembean.hospedagem.obs}" />
-				
+				<h:message for="obs" />
 				
 				
 				<h:commandButton value="Cadastrar"

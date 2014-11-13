@@ -8,7 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 
 import br.ufc.dao.AtividadeDAO;
 import br.ufc.dao.AtividadeJPADAO;
+import br.ufc.dao.CarroDAO;
+import br.ufc.dao.CarroJPADAO;
+import br.ufc.dao.FornecedorDAO;
+import br.ufc.dao.FornecedorJPADAO;
+import br.ufc.dao.LocalEventoDAO;
+import br.ufc.dao.LocalEventoJPADAO;
+import br.ufc.dao.NucleoDAO;
+import br.ufc.dao.NucleoJPADAO;
+import br.ufc.dao.ParticipanteDAO;
+import br.ufc.dao.ParticipanteJPADAO;
+import br.ufc.model.Carro;
 import br.ufc.model.Evento;
+import br.ufc.model.Fornecedor;
+import br.ufc.model.LocalEvento;
+import br.ufc.model.Nucleo;
+import br.ufc.model.Participante;
 import br.ufc.service.EventoService;
 import br.ufc.service.EventoServiceImpl;
 
@@ -107,7 +122,23 @@ public class EventoBean {
 		this.evento = evento;
 	}
 
+	public List<Nucleo> getListaDeNucleos() {
+		NucleoDAO dao = new NucleoJPADAO();
+		return dao.find();
+	}
 	
+	public List<Participante> getListaDeParticipantes() {
+		ParticipanteDAO dao = new ParticipanteJPADAO();
+		return dao.find();
+	}
 
-
+	public List<LocalEvento> getListaDeLocais() {
+		LocalEventoDAO dao = new LocalEventoJPADAO();
+		return dao.find();
+	}
+	
+	public List<Fornecedor> getListaDeFornecedores() {
+		FornecedorDAO dao = new FornecedorJPADAO();
+		return dao.find();
+	}
 }
