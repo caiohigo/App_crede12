@@ -47,11 +47,24 @@
 
 				</p:rowExpansion>
 
-				<p:column headerText="Nome">
+				<p:column headerText="Data da Viagem">
+
 					<h:outputText value="#{viagem.data}"></h:outputText>
 				</p:column>
 
+				<p:column headerText="Cidade">
+					<h:outputText value="#{viagem.municipio}"></h:outputText>
+
+				</p:column>
+				<p:column headerText="Distância (KM)">
+
+					<h:outputText value="#{viagem.distancia}"></h:outputText>
+				</p:column>
+
+
+
 				<p:column>
+
 					<f:facet name="header">
 						<h:outputText value="Editar" />
 					</f:facet>
@@ -79,9 +92,9 @@
 
 
 			</p:dataTable>
-			
-			
-			
+
+
+
 		</h:form>
 
 	</ui:define>

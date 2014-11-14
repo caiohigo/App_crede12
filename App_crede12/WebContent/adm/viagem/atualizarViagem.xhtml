@@ -5,7 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-
 	<ui:define name="nome_cabecalho">
 		Atualizar Viagem
 	</ui:define>
@@ -15,11 +14,10 @@
 	<ui:define name="principal">
 		<h:messages globalOnly="true" />
 
-
-
 		<h:form>
 
 			<h:panelGrid columns="2">
+
 
 				<h:outputLabel for="dataViagem" value="Data da Viagem:"></h:outputLabel>
 				<p:inputMask id="dataViagem" value="#{viagemBean.viagem.data}"
@@ -45,7 +43,7 @@
 					<f:selectItems var="cidade" value="#{viagemBean.listaDeCidades}"
 						itemLabel="#{cidade.nome}" itemValue="#{cidade.nome}" />
 				</h:selectOneMenu>
-				
+
 				<h:outputLabel for="evento" value="Evento:"></h:outputLabel>
 				<h:selectOneMenu value="#{viagemBean.viagem.evento}">
 					<f:selectItem itemLabel="-- SELECIONE --" itemValue="" />
@@ -72,19 +70,20 @@
 					<f:selectItems var="carro" value="#{viagemBean.listaDeCarros}"
 						itemLabel="#{carro.veiculo}" itemValue="#{carro.veiculo}" />
 				</h:selectOneMenu>
-				
+
+
 				<h:inputHidden value="#{viagemBean.viagem.id}" />
-				
+
 				<h:commandButton value="Atualizar"
-					action="#{viagemBean.atualizarViagem}"required="true"
-					class="btn btn-success" />
-
-
-
+					action="#{viagemBean.atualizarViagem}" required="true"
+					class="btn btn-success">
+				
+				</h:commandButton>
 			</h:panelGrid>
 		</h:form>
 
-		</h:form>
+		<h:messages globalOnly="true" />
+
 	</ui:define>
 
 </ui:composition>

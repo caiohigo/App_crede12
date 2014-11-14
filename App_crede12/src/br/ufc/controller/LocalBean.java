@@ -58,7 +58,7 @@ public class LocalBean {
 		LocalEventoDAO localEventoDAO = new LocalEventoJPADAO();
 		localEvento = localEventoDAO.find(id);
 
-		return "/adm/cadastrar/LocalEvento/editar";
+		return "/adm/cadastrar/localEvento/editar";
 
 	}
 
@@ -71,7 +71,7 @@ public class LocalBean {
 				"Atualizado com sucesso", "Atualizado com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "/adm/cadastrar/LocalEvento/listar";
+		return "/adm/cadastrar/localEvento/listar";
 
 	}
 
