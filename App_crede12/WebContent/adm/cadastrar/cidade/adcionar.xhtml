@@ -9,7 +9,7 @@
 		Adicionar Cidade
 	</ui:define>
 	<ui:define name="principal">
-		<h:messages globalOnly="true" />
+		<p:growl id="messages" ></p:growl>
 
 		<h:form>
 			<h:panelGrid columns="2">
@@ -25,6 +25,8 @@
 					action="#{cidadeBean.inserirCidade()}" required="true"  class="btn btn-success" />
 
 			</h:panelGrid>
+			<br/>
+			<h:commandButton value="Listar Cidades" action="/adm/cadastrar/cidade/listar? faces-redirect=true"> </h:commandButton>
 		</h:form>
 
 

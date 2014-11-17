@@ -43,7 +43,7 @@ public class CarroBean {
 				"Inserido com sucesso", "Inserido com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "";
+		return "? faces-redirect=true";
 
 	}
 
@@ -78,7 +78,7 @@ public class CarroBean {
 				"Atualizado com sucesso", "Atualizado com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "/adm/cadastrar/carro/listar";
+		return "? faces-redirect=true";
 
 	}
 
