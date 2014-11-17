@@ -10,32 +10,38 @@
 	</ui:define>
 	<ui:define name="principal">
 
-		<h:messages globalOnly="true" />
+		<p:growl id="messages"></p:growl>
 
 		<h:form>
 
 
-				<h:panelGrid columns="2">
+			<h:panelGrid columns="2">
 
-				<h:outputLabel  for="quarto" value="Quarto:"></h:outputLabel>
+				<h:outputLabel for="quarto" value="Quarto:"></h:outputLabel>
 				<p:inputText id="quarto" value="#{quartoBean.quarto.quarto}" />
-				
 
-				<h:outputLabel  for="capacidade" value="Capacidade:"></h:outputLabel>
+
+				<h:outputLabel for="capacidade" value="Capacidade:"></h:outputLabel>
 				<p:inputText id="capacidade" value="#{quartoBean.quarto.capacidade}" />
 
-				
 
-					<h:inputHidden value="#{quartoBean.quarto.id}" />
+
+				<h:inputHidden value="#{quartoBean.quarto.id}" />
 
 
 				<h:commandButton value="Atualizar"
-					action="#{quartoBean.atualizarQuarto()}" required="true"  class="btn btn-success" />
-				
-				
+					action="#{quartoBean.atualizarQuarto()}" required="true"
+					class="btn btn-success" />
+
+
 
 
 			</h:panelGrid>
+			<br />
+			<h:commandButton value="Listar Quartos"
+				action="/adm/cadastrar/quarto/listar? faces-redirect=true">
+			</h:commandButton>
+
 		</h:form>
 
 	</ui:define>

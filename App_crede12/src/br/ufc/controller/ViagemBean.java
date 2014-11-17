@@ -1,6 +1,5 @@
 package br.ufc.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -23,7 +22,6 @@ import br.ufc.model.Cidade;
 import br.ufc.model.Evento;
 import br.ufc.model.Participante;
 import br.ufc.model.Viagem;
-import br.ufc.service.EventoService;
 import br.ufc.service.ViagemService;
 import br.ufc.service.ViagemServiceImpl;
 
@@ -69,7 +67,7 @@ public class ViagemBean {
 
 		FacesMessage m = new FacesMessage("inserido com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
-		return "/adm/viagem/listarViagem";
+		return "/adm/viagem/listarViagem? faces-redirect=true";
 
 	}
 
@@ -78,7 +76,7 @@ public class ViagemBean {
 		ViagemService viagems = new ViagemServiceImpl();
 		viagems.update(viagem);
 		
-		return "/adm/viagem/listarViagem";
+		return "/adm/viagem/listarViagem? faces-redirect=true";
 	}
 
 	public void deletarViagem() {

@@ -40,7 +40,7 @@ public class CidadeBean {
 				"Inserido com sucesso", "Inserido com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "";
+		return "? faces-redirect=true";
 
 	}
 

@@ -10,7 +10,7 @@
 	</ui:define>
 	<ui:define name="principal">
 
-		<h:messages globalOnly="true" />
+		<p:growl id="messages" ></p:growl>
 
 		<h:form>
 
@@ -39,6 +39,9 @@
 
 
 			</h:panelGrid>
+			<br/>
+			<h:commandButton value="Listar Núcleos" action="/adm/cadastrar/nucleo/listar? faces-redirect=true"> </h:commandButton>
+	
 		</h:form>
 
 	</ui:define>

@@ -38,7 +38,7 @@ public class LocalBean {
 				"Inserido com sucesso", "Inserido com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "";
+		return "? faces-redirect=true";
 	}
 
 	public List<LocalEvento> getLocalEventos() {
@@ -71,7 +71,7 @@ public class LocalBean {
 				"Atualizado com sucesso", "Atualizado com sucesso");
 		FacesContext.getCurrentInstance().addMessage(null, m);
 
-		return "/adm/cadastrar/localEvento/listar";
+		return "? faces-redirect=true";
 
 	}
 
