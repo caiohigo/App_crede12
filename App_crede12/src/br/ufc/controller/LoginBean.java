@@ -7,21 +7,24 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import br.ufc.dao.AdministradorDAO;
+import br.ufc.dao.AdministradorJPADAO;
 import br.ufc.enumeration.EnumLogin;
+import br.ufc.model.Administrador;
 
 @ManagedBean(name="loginBean")
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 9108781020220176401L;
-	private String nome;
-	private String senha;
 
+	private Administrador administrador;
+	
 	public LoginBean() {
-		System.out.println("construtor login bean");
 		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 		if (session != null) {
 			session.invalidate();
 		}
+		administrador = new Administrador();
 	}
 	
 	public String logout(){
@@ -31,12 +34,18 @@ public class LoginBean implements Serializable {
 		return "/login";
 	}
 	public String login() {
+		
 		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		if (EnumLogin.LOGIN.getConteudo().equals("1") && EnumLogin.SENHA.getConteudo().equals("1")) {
+		
+		AdministradorDAO admDAO = new AdministradorJPADAO();
+		
+		administrador = admDAO.autenticaAdministrador(administrador);
+		
+		if (administrador != null) {
 			if (session == null) {
 				session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			}
-			session.setAttribute("nome", nome);
+			session.setAttribute("adm", administrador);
 			return "/adm/index?faces-redirect=true";
 		} else {
 			if (session != null) {
@@ -49,21 +58,15 @@ public class LoginBean implements Serializable {
 		
 	}
 
-	public String getNome() {
-		return nome;
+	public Administrador getAdministrador() {
+		return administrador;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+	
 	
 }
 

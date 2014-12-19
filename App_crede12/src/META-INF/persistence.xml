@@ -9,6 +9,7 @@
 		<class>br.ufc.model.Viagem</class>
 		<class>br.ufc.model.ParticipanteEvento</class>
 		<class>br.ufc.model.Hospedagem</class>
+		<class>br.ufc.model.Administrador</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/crede12" />

@@ -28,7 +28,7 @@ public class LoginFilter implements Filter {
 
 		if (uri.contains("/adm/")) {
 			if (session != null) {
-				if (session.getAttribute("nome") == null) {
+				if (session.getAttribute("adm") == null) {
 					resp.sendRedirect(contextPath + "/login.xhtml");
 				} else {
 					chain.doFilter(request, response);
