@@ -1,0 +1,35 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nome_cabecalho">
+		Adicionar Administrador
+	</ui:define>
+	<ui:define name="principal">
+
+		<h:form>
+		
+			<h:panelGrid columns="2">
+				
+				<h:outputLabel value="Nome :" for="nome"/>
+				<h:inputText value="#{administradorBean.administrador.nome}" id="nome" required="true"/>							
+							
+				<h:outputLabel value="Login :" for="login"/>
+				<h:inputText value="#{administradorBean.administrador.login}" id="login" required="true"/>							
+							
+				<h:outputLabel value="Senha : " for="senha"/>
+				<h:inputSecret value="#{administradorBean.administrador.senha}" id="senha" required="true"/>							
+							
+				<h:commandButton value="Adicionar" class="btn btn-primary"  action="#{administradorBean.adicionarAdministrador}" />							
+							
+			</h:panelGrid>
+		
+		</h:form>
+
+	</ui:define>
+
+
+</ui:composition>

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
+import br.ufc.model.Administrador;
 import br.ufc.utils.JPAUtils;
 
 public class GenericJPADAO<T> implements GenericDAO<T> {
@@ -60,4 +61,5 @@ public class GenericJPADAO<T> implements GenericDAO<T> {
 		public void close() {
 			JPAUtils.closeEntityManager();
 		}
+		
 }

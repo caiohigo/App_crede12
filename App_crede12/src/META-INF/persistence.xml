@@ -4,13 +4,19 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<persistence-unit name="dev" transaction-type="RESOURCE_LOCAL">
+		<class>br.ufc.model.Administrador</class>
+		<class>br.ufc.model.Carro</class>
+		<class>br.ufc.model.Cidade</class>
 		<class>br.ufc.model.Evento</class>
+		<class>br.ufc.model.Fornecedor</class>
+		<class>br.ufc.model.Hospedagem</class>
+		<class>br.ufc.model.LocalEvento</class>
+		<class>br.ufc.model.Nucleo</class>
 		<class>br.ufc.model.Participante</class>
 		<class>br.ufc.model.Viagem</class>
 		<class>br.ufc.model.ParticipanteEvento</class>
-		<class>br.ufc.model.Hospedagem</class>
-		<class>br.ufc.model.Administrador</class>
-		
+		<class>br.ufc.model.Quarto</class>
+
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/crede12" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

@@ -5,5 +5,7 @@ import br.ufc.model.Administrador;
 public interface AdministradorDAO extends GenericDAO<Administrador>{
 
 	public Administrador autenticaAdministrador(Administrador administrador);
+	public boolean loginExistente(Administrador adminitrador);
+	
 	
 }
